@@ -139,7 +139,7 @@ let g:disable_protodef_sorting=1"
 let g:DoxygenToolkit_blockHeader="*******************************************************"
 let g:DoxygenToolkit_blockFooter="*******************************************************"
 let g:DoxygenToolkit_authorName="chimmu"
-let g:DoxygenToolkit_licenseTag="Copyright (C) AnyFish"
+let g:DoxygenToolkit_licenseTag="Copyright (C) "
 let g:DoxygenToolkit_briefTag_funcName="yes"
 let g:doxygen_enhanced_color=1
 let g:load_doxygen_syntax=1
@@ -162,6 +162,14 @@ nmap <leader>dl :DoxLic<CR>
 "let g:UltiSnipsExpandTrigger="<leader><tab>"
 "let g:UltiSnipsJumpForwardTrigger="<leader><tab>"
 "let g:UltiSnipsJumpBackwardTrigger="<leader><s-tab>"
+function! s:insert_gates()
+	  let gatename = substitute(toupper(expand("%:t")), "\\.", "_", "g")
+	    execute "normal! i#ifndef " . "_" . gatename . "_"
+	      execute "normal! o#define " . "_" . gatename . "_" . " "
+	        execute "normal! Go#endif /* " . "_" . gatename . "_" . " */"
+		  normal! kk
+endfunction
+autocmd BufNewFile *.{h,hpp} call <SID>insert_gates()
 
 "showfunc
 nmap <leader>ef <Plug>ShowFunc
