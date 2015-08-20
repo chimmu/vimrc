@@ -11,6 +11,8 @@ set ruler "显示光标当前位置"
 set cursorline "当前行下划线"
 set cursorcolumn "高亮显示当前列"
 set hlsearch "高亮显示搜索结果"
+set fencs=utf-8,chinese,latin1 
+set enc=utf-8 "设置编码"
 
 let mapleader="," "重定义leader键
 filetype indent on "自适应不同语言的智能缩进
@@ -117,6 +119,7 @@ let g:syntastic_auto_loc_list = 1
 "let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:syntastic_cpp_check_header = 1
+let g:syntastic_cpp_include_dirs =['/home/test'] 
 
 "autopairs
 let g:AutoPairsFlyMode = 0
@@ -139,7 +142,7 @@ let g:disable_protodef_sorting=1"
 let g:DoxygenToolkit_blockHeader="*******************************************************"
 let g:DoxygenToolkit_blockFooter="*******************************************************"
 let g:DoxygenToolkit_authorName="chimmu"
-let g:DoxygenToolkit_licenseTag="Copyright (C) "
+let g:DoxygenToolkit_licenseTag="Copyright (C) chimmu"
 let g:DoxygenToolkit_briefTag_funcName="yes"
 let g:doxygen_enhanced_color=1
 let g:load_doxygen_syntax=1
